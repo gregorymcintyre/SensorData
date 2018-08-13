@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20181.18.0615.1128                               -->
+<workbook original-version='18.1' source-build='2018.1.2 (20181.18.0615.1128)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='2_2_motionData - cleaned' inline='true' name='federated.04o7g2w0u2dqyb1g5k7911afbye7' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='2_2_motionData - cleaned' name='textscan.02m1jd30k399kk1fz7gll1ix9w4f'>
+            <connection class='textscan' directory='C:/git/SensorData/HCSR505motion' filename='2_2_motionData - cleaned.txt' password='' server='' />
+          </named-connection>
+          <named-connection caption='2_2_DHTdata - cleaned' name='textscan.1yp8hze0h6vr6o1fhspw40c8dq9o'>
+            <connection class='textscan' directory='C:/git/SensorData/DHT22tempHum' filename='2_2_DHTdata - cleaned.txt' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.02m1jd30k399kk1fz7gll1ix9w4f' name='2_2_motionData - cleaned.txt' table='[2_2_motionData - cleaned#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_AU' separator='&#9;'>
+            <column datatype='integer' name='Sample Number' ordinal='0' />
+            <column datatype='string' name='Status' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[2_2_motionData - cleaned.txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_AU&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Sample Number]</local-name>
+            <parent-name>[2_2_motionData - cleaned.txt]</parent-name>
+            <remote-alias>Sample Number</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Status]</local-name>
+            <parent-name>[2_2_motionData - cleaned.txt]</parent-name>
+            <remote-alias>Status</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[Sample Number]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.51551' measure-ordering='alphabetic' measure-percentage='0.48449' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Australia&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#70ad47' fontname='Benton Sans Book'>HCSR505motion</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='2_2_motionData - cleaned' name='federated.04o7g2w0u2dqyb1g5k7911afbye7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04o7g2w0u2dqyb1g5k7911afbye7'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[Status]' role='dimension' type='nominal' />
+            <column-instance column='[Status]' derivation='None' name='[none:Status:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.04o7g2w0u2dqyb1g5k7911afbye7].[sum:Number of Records:qk]</rows>
+        <cols>[federated.04o7g2w0u2dqyb1g5k7911afbye7].[none:Status:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04o7g2w0u2dqyb1g5k7911afbye7].[none:Sample Number:ok]</field>
+            <field>[federated.04o7g2w0u2dqyb1g5k7911afbye7].[none:Status:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='183'>
+      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
+      AElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
