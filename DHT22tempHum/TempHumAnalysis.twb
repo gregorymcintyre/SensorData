@@ -78,7 +78,7 @@
       </column>
       <column datatype='integer' name='[Sample Number]' role='dimension' type='ordinal' />
       <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
-      <layout dim-ordering='alphabetic' dim-percentage='0.54244' measure-ordering='alphabetic' measure-percentage='0.45756' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.535011' measure-ordering='alphabetic' measure-percentage='0.464989' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[:Measure Names]' type='palette'>
@@ -142,51 +142,25 @@
     <worksheet name='Temp'>
       <table>
         <view>
-          <datasources>
-            <datasource caption='2_2_DHTdata - cleaned' name='federated.0xgf5zg1nuq4f01ghardk056j30u' />
-          </datasources>
-          <datasource-dependencies datasource='federated.0xgf5zg1nuq4f01ghardk056j30u'>
-            <column caption='Temperature' datatype='real' datatype-customized='true' name='[Data - Split 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0xgf5zg1nuq4f01ghardk056j30u].[Data]'>
-              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( SPLIT( SPLIT( [Data], &quot;Humidity&quot;, 2 ), &quot;:&quot;, 3 ), &quot;Celsius&quot;, 1 ) ))' />
-            </column>
-            <column datatype='string' name='[Data]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-              <calculation class='tableau' formula='1' />
-            </column>
-            <column-instance column='[Data - Split 2]' derivation='None' name='[none:Data - Split 2:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.0xgf5zg1nuq4f01ghardk056j30u].[:Measure Names]'>
-            <groupfilter function='level-members' level='[:Measure Names]' />
-          </filter>
-          <filter class='categorical' column='[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Data - Split 2:ok]'>
-            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
-              <groupfilter function='level-members' level='[none:Data - Split 2:ok]' />
-              <groupfilter function='member' level='[none:Data - Split 2:ok]' member='nan' />
-            </groupfilter>
-          </filter>
-          <slices>
-            <column>[federated.0xgf5zg1nuq4f01ghardk056j30u].[:Measure Names]</column>
-            <column>[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Data - Split 2:ok]</column>
-          </slices>
+          <datasources />
           <aggregation value='true' />
         </view>
         <style />
         <panes>
-          <pane id='5' selection-relaxation-option='selection-relaxation-allow'>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
           </pane>
         </panes>
-        <rows>[federated.0xgf5zg1nuq4f01ghardk056j30u].[sum:Number of Records:qk]</rows>
-        <cols>[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Data - Split 2:ok]</cols>
+        <rows />
+        <cols />
       </table>
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' name='Temp'>
+    <window class='worksheet' maximized='true' name='Temp'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -208,17 +182,19 @@
         </edge>
       </cards>
       <viewpoint>
+        <zoom type='fit-width' />
         <highlight>
           <color-one-way>
             <field>[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Data - Split 1:ok]</field>
             <field>[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Data - Split 2:ok]</field>
+            <field>[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Data:nk]</field>
             <field>[federated.0xgf5zg1nuq4f01ghardk056j30u].[none:Sample Number:ok]</field>
           </color-one-way>
         </highlight>
         <default-map-tool-selection tool='2' />
       </viewpoint>
     </window>
-    <window class='worksheet' maximized='true' name='Hum'>
+    <window class='worksheet' name='Hum'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -386,91 +362,17 @@
     </thumbnail>
     <thumbnail height='192' name='Temp' width='192'>
       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
-      AAAR0ElEQVR4nO3dWWwk+V0H8G9dXd3V1e5u2+37mhl7ZjyzO5sgLUxINgqgCERAHBLiCQlF
-      ikQED8ALAoREeOAhEkGgCIF4IQ9ICLJCBGWVoN1Iy+6wh4ZZssfc9ozd7avtdt9XHf8/D/bM
-      eMddVe0Zd/n4/z6Prr+r/v+u/nadvyqJc85BiKDko+4AIUeJAkCERgEgoWJ2E+9cu4aHuY2u
-      /4e7DmyH9aQ/ak/mSogHWYuBSS5GUxreeP0NDA0OIl8qQdNjSOoctmJCahagGX1wJRXt8hZU
-      bmHZHsTL5zPg7QoW1uvoj0lgegqfvTz3fP05pHERcgASqpsr+OTuAtbWC4CkweE2srks8ht5
-      fHD9fRQ2N9Bqt/C/N66jaivQZY4PP7iOpQcLkGP9uPPxDRRKlefvCZ0FIsfFw+UlzExNh7rM
-      5woAYwyyTBsRcnI917eXNh7kpKOfbyI0CgARGgWACI0CQIRGASBC6/pKMHMsbGyVIDlNaOYA
-      BlJmL/tFSCi6DsD62hpqzRb0mIlWaQvpPgOMsRNzKvTBehnZvPeVwytnM0iZ0RB7RI6DLgPA
-      0Gg0sFWqImW1EIn3Q5ZlcM6hKEpve3hI3vkkh1ffvOU5/Rtf/RIGaasmnC4DIGP2wjxme9sX
-      QkJHB8FEaBQAIjQKABEaBYAIjQJAhEYBIEKjABChUQCI0CgARGgUACI0CgARGgWACI0CQIRG
-      ASBCowAQoVEAiNAoAERoXdcEr2Ufosk0yHYN0eQQRjLpXvaLkFB0HQAjbmA7X4Zst6CZLhhj
-      J6oonjH/Fywwl8FxnJB6Q46LrgNQrVQhSxKMuIF2u3XiiuKDnmItKzJUld4XIpqu1/jEzLle
-      9oOQI0EHwURotM1/SrNt472bK57TM+k4Ls9kQuwR6SUKwFPKtTb++t/e9Zz++RcnKQCnCO0C
-      EaFRAIjQKABEaBQAIjQKABEaBYAIjQJAhEYBIEKjABChUQCI0CgARGgUACI0CgARGgWACO1A
-      RfGVNofiNqGZ/ZgeH+llvwgJxYGK4gvVAoxkGty1Tm1RvMtc33accyqeP0UOVBSvx+JwW1Vo
-      5sl7U3y3RfGK7D8eSZKoeP4UoaJ4IjQ6CCZCowAQoVEAiNAoAERoFAAiNAoAERoFgAiNAkCE
-      RgEgQqMAEKFRAIjQKABEaBQAIjQKABEaBYAIjQJAhEYBIELrvig+t4RCzYJi15EemaY3xZNT
-      oesA6HoUo2YK5fwaKtUKhgaSwhfFf/vfr+NutuDZ9pu/83OIRqh++Djreu1UKmVwzYEW0WCY
-      fVQUD6BQbmBlq+qzTIUK6I+5jmuHcwarbUGN6FBkCQAwc+58qB0jJAwdfxZzH93Aq6+9ig8+
-      9n5hNCGnwb4AuE4TS/lt9MeSSA+aR9EnQkKzLwCKGsOFMxPQDB3NunUUfSIkNB13gZSIjoHh
-      s5id7g+7P4SEqmMAoqaBD/7nv1GiLQA55ToGoLS2ijMXzmBlvRx2fwgJVcfToEZ6BPMjE3Db
-      etj9ISRUHbcAquLg7R+9hZZ0Mi5yEfKsOgagWthGm1koblXC7g8hodoXAM4ZSjbD9NgkhjLx
-      o+gTIaHZF4B2PY/ceh23PrmNvoRxFH0iJDT7DoIjsX7MTA1hcmoI4P53UBJy0u2/FcJuIbeY
-      QySRgHZC7vQk5FntC4CqJzAyoOKH338N+XLzKPpESGj27QJJkoTx6VlcsqXuiwUIOaE6fsfV
-      qImrP/1F6Lu1AIScVh2vA9itIl7/rzewWaw//pvrOnAcF45jww0oLyTkpOi4BWC2i5ihYLtQ
-      Rya9cy2gkF/HxnYFClxo0QRmz04DwImpCe5Gt2N51K6b1qfp8zmNOgZAj5tYX17B/ItXP/X3
-      6akpFLaL4K4NzvmpK4p3XberonjX3W0TMHTHdeC6tBt5nO0LAOccxbUVZCZHkM9XMJqOAQBs
-      20K9WEEiqiBiDlFRPAAp4LutKioVxR9z+9YOc9tYLdVhNywMDjy5Ejw+dTbUjhEShg4lkVFM
-      DJhw1BhUOgtETrnO22fGYZgJqMrxf3LiH/3966i3OleuDfTF8I2v/kzIPSInSeeD4GQKufff
-      wpmpsxhIHu8b4la2Kqg2Ogegbfsf0BLS8Sc+lkjjpfkpVGp22P0hJFQdboZr4Pr1D3Dz9iKi
-      0ZNxhoeQZ9WxIGYlm0UiM4XhfiqIIafbvmMARY3hy7/4FTAAhq4dQZcICc/+u0FlBQOZzFH0
-      hZDQHf/znIT0EF2nP+XK9RZee/e+5/SZkRQ+d3kixB4dLxSAU65Sb+Nf3vjYc/qXPjMjdABo
-      F4gIjQJAhEYBIEKjABChUQCI0Lo+C9Ru1sEVHY3yFrhqYCDd18t+ERKKrgPQqNZhq21srKxi
-      anb+cT3w4/rYo+JXl8vxuH9Btcuc7YyFBT0Ocu88A7rG2E6dcdNyUKy2PNv1xXWY0d7cdsJY
-      wLhxDNbhEeo6ALIEVGs1JFNJZLNZXL44B2CnRvZI+S1eOkD/dttKvjPcbXrAed64s4a/+td3
-      PZv99i+8hF/5woXu5nlAQV2VcAzW4RHqPgARDSlVh65wDOnxnS+LJAUWmx+1R/0LWsmPxhL4
-      ZZD2zDNo2ZK807bLZfdC8Jf7+K/DXuo6AIlkupf9IORIiBt9QhDyvUB/8U9v4sbdNc/p3/nT
-      X0UyHg2xR0R0oQaAI+DMycl4yBw5RWgXiAiNAkCERgEgQqMAEKFRAIjQKABEaMeyJvhutoD/
-      ePuO5/RXrkzhqsB1rOTwHMsAFCoNvP3Rsuf0mdEUrnpOJaR7tAtEhEYBIEKjABChUQCI0CgA
-      RGhdB6BSLKDWbCO/mkWx0uhlnwgJTdenQRVJQb1RQcORgMIGkub0gV+UHdTWdV04jgPmBrzU
-      mjE4jrM7U98FPm7XzYuyHcfp6kXZj+YZNB7HdeA4UvCy947nkAUVvHPeu2WfBF0HoLi9iXzd
-      gg4bkXj/M70oO6g+VVEUqKoKOeDtlLIsP3kBtW9R/JOXWvfmRdn+43n0ouzAZe8dzyELWj+S
-      1LtlnwRdj3zi7Bzo2is5beggmAhN3G3fMbW6VQXzOLbQFBnD/SYAoFRrodbs/H5kAMikDOga
-      rd4g9AkdM3/w7R+iZXU+KB0fTODv/vArAIBX37yF713zvmHwL7/2s7h8ZqgnfTxNaBeICI0C
-      QIRGASBCowAQoVEAiNAoAERoFAAiNAoAERoFgAiNAkCERgEgQqMAEKFRAIjQKABEaAcMAMfS
-      4l2sbxZ70xtCQnbAegCOWrWOiDkIxhgVxYdcFM+BPcv2n6e7O08qivd3sABwwEyYqNVrGB3q
-      p6L4kIviJWDPsv3nqezOk4ri/R1s5JKM6bNzPeoKIeGjg2AiNAoAERoFgAiNAkCERgEgQnvu
-      81+uy7BRrHtOj0ZU9PfFnncx5BhptGyUai3P6cm4jngsEmKPnt1zB6BYa+Hr3/q+5/Sfmh/H
-      n/zWK8+7GHKMvHszh7/57nue07/2yz+BX/rc+RB79OxoF4gIjQJAhEYBIEIT9yYQEorf/PPv
-      wvG4uXF6OIlv/d7PAwD+8T9v4Afv3+/YLhpR8c9/9usAgO9du4Pv/ODHnsv7/d+4ileuTHXd
-      PwoA6SnHZZ4BcPbcJesyn3Z7/s4492wHBN+h+zTaBSJCowAQoR14F4i5LiDLkAPuhScnz9++
-      +h4erHpX+33z61+GpnZf/3GUWpaDP/6H1z2nz04M4Hd/7eWDFsS4uHXzE2hGEufPTT9vH8kx
-      s7pVxeJayXP6wfaujxZj3Hcsj65UHygAnHPEk2lwV9wSOnK6HCgAkqzAjMjQEqO96g8hoZL4
-      Qc8b7WKMwXVd2C7DOx/nHv+d49NluoMpAy+cGQLnHB8t5rFdae5pyyHtaf35FyehKjK2yk18
-      8iDv2e7MWBpTQ32QJAnXPlqG7bCObaO6iquXJsA5x4O1EpY3yp7zfGl2GCkzipbl4r2bOc92
-      Q+k4Ls1kwDnHhwsbKFZbnm2/cGUKiixhs9TAzYebnu3OjfdjIpOAJEl468NluO7e8Tz5PI2o
-      hp+cHwfnHAurReTyFc95fnZuBH1xHc22g/dvrXi2G+43MT89CM45/u/+Bso17/F88aVpSBKw
-      Uazj9tKWZ7u5iX6MDe6M580fL4Ezvqftk/HEYxG8fHEMnHPcX9nGyma14zwVRcYrV6bAOUdu
-      s4qFlW3PZV+aySCTMsAYx1sfLsNLKhHFZ2ZHnj0AwM5THLopiuecgzHWVdtu5+m6LmRZDixM
-      P+g8RR0P5zyweL8Xy+7FPA+y7OcKwNPWVrKwXGB0bAwRv7MFnKFSqYAxhlKtiZnJce955pbh
-      KlHIcDE26r3r5bRquPdgFapkITN9EamY995dbukBGvUKIulJzIz2e7Zb39hAXJOQ3azg/Nw5
-      qLLHl9NtI79dQ3FrA32DoxjNpD3n+WDhHiLxJEaGMlC85gfAalax+HAFzLUxPnsJyaj357mS
-      XUKhWERmZAqjQ97jqRa3sJhbh2HEce7sjPeZPM5QrlTAXRulJsPM+LDnPNdXs3BaNRQcEy+d
-      n/RsVy8XYHEFa7kcJufmkdC9x5PP51GrFKHGkpgaH/Fsd//ubZipQQxlBnzPStbLBWTXtsA4
-      w5nZC4hpT4J+qNcB2raLyfFRbOU34DDfB/agsF2CqiqBZxZcDqRMHeubBd92zLWQ7DNhxuNo
-      tP2fhZNKpWDZDuLxuG87iTlYXMmjz4h4vrx6p6GC4tYaqo1W4C84VzQMpRPIB4yHuw4sqw3O
-      GeyA5yQ1GnUYiX44ViOgXQOupMCMReD7qCLOsL1dhtrFr2gqlYZjW4iZiYCWHKu5LAzThOX4
-      r/V6pYjtci3ws5QjUaTNKDYL/g9qcxwHlmXt7LY/9b081C3Axsoyqm0X0YiC1OAYzGjAMTbn
-      aDRbMAyfghnOwQE0m00YhhHYB+600XQVGLr/sjnnaDSbiHcxz1azAU2P+f5i73yMHM1m23c8
-      nHNIkoRGoxE4Hs454FqB43m0CoM+o7XsQ9RtQFElTIxPQgt4/hKYi0bbhhGLBvaz28+S2S20
-      uYZYxC9cHJwHj+egn6VjtcAVHRH1ybgP9V4g04jBGEhibWkRA0M+6WU2bt2+C9txkRwYxrTP
-      Fya7/AClSh2SquOFee8iC6tRwp37WTBmY/TcCzB078Uv3LuNestCLJ7E3Fnv6xmba1msF8pg
-      kHBpfh6K11O43DZu3b4Hx3WRyoxhym88Sw9QrtYha1Fcvuj9jKVWrYh7izlwZmNs7sXA8TRa
-      NoxECrNnvG8EixsG+swUHi4s+D5PDK6FO7fvoNJ2MD0z6xuA7NIioETQajuYOzfjO57l9SIU
-      ZiEzNQe/GsGFe3egR+NwJRXTPl/s5YcLULQo2g7DuRnvcVeLm9go1cHtNiZmPv2ZH2oA4ukM
-      ACBx4WJASwkygGg0GriZ1VQFiqpBiWi+7WRlZyhRXffeV9+lyDIiER1awBPRIpoGSZKhqRp8
-      H0EnKZAlqbvxKDIUVYOq+Y9HUVRAkqDruu+WB9gdjx4NfMJb38AQAODypXnfdpAAl3FMTkyC
-      ubZvU01R0HIcIGh3RVHBd294Cx6PAtuxoEb9tzyqrMB2bEDy/yxVVQV3GVyX4enj/KO5F4i7
-      aLscZiKJRqPm27RW39kMsoBndrrtJpgSwWAyhkLVu14VABqtNox4Arbt365SrSFmGNBUyfcO
-      RDAbbYcjkehDPWg8jUfj8b+YaLcbgBLBYF8U25W2b9vmo/FYTd92XXNtWFwBXAvVhv88K7UG
-      itvbaFv+n2W7WUO9WoVltVBt+Y+93qijWK6hUav6tqvWG9gulmC1/PtYq1ZRr5bRti007U+v
-      x6O5HVrWMDE+Dl3hgOLfhUxmCIZpYjm35ttOM/owPRkDa2yjP+5fkD0yOo54TMd6wf+XKDM4
-      CFdPYHNlCari01bRMTkxgYjsAKr/r1ZmaBhx00R2Zd23nR5PYnLShFMrIB33/4UbGZtAPBrB
-      RvGQ7s9SY5iaGIcm2UDAliozPIIpw0C1UvFtpxt9mD2fALcaUAKODccmphEzoqhWvB+2AADD
-      o2OIdbFsM5HEuVQGTrOGqPbpLfShHgQTctL8P+sjRkky4jpEAAAAAElFTkSuQmCC
+      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
+      fBUOM1sAAAAASUVORK5CYII=
     </thumbnail>
   </thumbnails>
 </workbook>

@@ -66,7 +66,7 @@
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
-      <layout dim-ordering='alphabetic' dim-percentage='0.461538' measure-ordering='alphabetic' measure-percentage='0.538462' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.458886' measure-ordering='alphabetic' measure-percentage='0.541114' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;Australia&quot;' />
       </semantic-values>
@@ -77,15 +77,7 @@
     <worksheet name='Sheet 1'>
       <table>
         <view>
-          <datasources>
-            <datasource caption='2_2_SoilData - cleaned' name='federated.1h15bpt0eab8vg19t47cc1ekf0ym' />
-          </datasources>
-          <datasource-dependencies datasource='federated.1h15bpt0eab8vg19t47cc1ekf0ym'>
-            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
-              <calculation class='tableau' formula='1' />
-            </column>
-            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
+          <datasources />
           <aggregation value='true' />
         </view>
         <style />
@@ -97,8 +89,8 @@
             <mark class='Automatic' />
           </pane>
         </panes>
-        <rows>[federated.1h15bpt0eab8vg19t47cc1ekf0ym].[:Measure Names]</rows>
-        <cols>[federated.1h15bpt0eab8vg19t47cc1ekf0ym].[sum:Number of Records:qk]</cols>
+        <rows />
+        <cols />
       </table>
     </worksheet>
   </worksheets>
@@ -134,43 +126,19 @@
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='79' name='Sheet 1' width='192'>
-      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
-      AElFTkSuQmCC
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
     </thumbnail>
   </thumbnails>
 </workbook>
